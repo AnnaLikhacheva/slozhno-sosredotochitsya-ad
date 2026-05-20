@@ -1,62 +1,36 @@
-// Переключатель тем для проекта "Сложно сосредоточиться"
+// Переключение светлой и тёмной темы
 (function() {
-    const THEME_STORAGE_KEY = 'userThemePreference';
-    const DARK_THEME_CLASS = 'dark-theme';
+    const lightTheme = document.getElementById('theme-light');
+    const darkTheme = document.getElementById('theme-dark');
+    const buttons = document.querySelectorAll('.theme-menu__button');
     
-    // Получение системной темы
-    function getSystemThemePreference() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
+    const STORAGE_KEY = 'siteTheme';
     
-    // Применение темы
-    function applyTheme(themeName) {
-        const isDark = themeName === 'dark' || (themeName === 'auto' && getSystemThemePreference() === 'dark');
-        
-        if (isDark) {
-            document.body.classList.add(DARK_THEME_CLASS);
+    function setTheme(themeName) {
+        if (themeName === 'dark') {
+            lightTheme.disabled = true;
+            darkTheme.disabled = false;
+            localStorage.setItem(STORAGE_KEY, 'dark');
         } else {
-            document.body.classList.remove(DARK_THEME_CLASS);
-        }
-        
-        try {
-            localStorage.setItem(THEME_STORAGE_KEY, themeName);
-        } catch(e) {
-            console.warn('localStorage недоступен');
+            lightTheme.disabled = false;
+            darkTheme.disabled = true;
+            localStorage.setItem(STORAGE_KEY, 'light');
         }
     }
     
-    // Инициализация темы при загрузке
-    function initTheme() {
-        const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-        const initialTheme = savedTheme || 'auto';
-        applyTheme(initialTheme);
-        
-        // Навешиваем обработчики на кнопки после загрузки DOM
-        const buttons = document.querySelectorAll('.theme-menu__button');
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                const themeValue = this.getAttribute('data-theme');
-                applyTheme(themeValue);
-                
-                // Визуальная обратная связь
-                buttons.forEach(btn => btn.style.opacity = '1');
-                this.style.opacity = '0.7';
-            });
-        });
-    }
-    
-    // Запуск после полной загрузки DOM
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initTheme);
+    // Загружаем сохранённую тему
+    const savedTheme = localStorage.getItem(STORAGE_KEY);
+    if (savedTheme === 'dark') {
+        setTheme('dark');
     } else {
-        initTheme();
+        setTheme('light');
     }
     
-    // Следим за изменением системной темы (для режима auto)
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-        const currentTheme = localStorage.getItem(THEME_STORAGE_KEY);
-        if (currentTheme === 'auto') {
-            applyTheme('auto');
-        }
+    // Вешаем обработчики на кнопки
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const theme = this.getAttribute('data-theme');
+            setTheme(theme);
+        });
     });
 })();

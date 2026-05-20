@@ -1,4 +1,4 @@
-/* Светлая тема*/
+/* Светлая тема */
 .page {
     background-color: #ffffff;
     color: #111111;
@@ -8,23 +8,23 @@
     color: #111111;
 }
 
+.header {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
 .theme-menu__button {
     border-color: #111111;
     color: #111111;
 }
 
 .theme-menu__button:hover {
-    background-color: #111111;
-    color: #ffffff;
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    color: white;
 }
 
 .card {
     background-color: #f5f5f5;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.card__title {
-    color: #111111;
 }
 
 .methods__item {
@@ -32,10 +32,6 @@
     border-left-color: #4a90e2;
 }
 
-.intro__cat {
-    border: 3px solid #4a90e2;
-}
-
 .footer {
-    background-color: #fafafa;
+    border-top-color: rgba(0, 0, 0, 0.1);
 }

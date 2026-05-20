@@ -8,6 +8,10 @@
     color: #eeeeee;
 }
 
+.header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
 .theme-menu__button {
     border-color: #eeeeee;
     color: #eeeeee;
@@ -16,16 +20,11 @@
 .theme-menu__button:hover {
     background-color: #6c5ce7;
     border-color: #6c5ce7;
-    color: #ffffff;
+    color: white;
 }
 
 .card {
     background-color: #2d2d44;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.card__title {
-    color: #ffffff;
 }
 
 .methods__item {
@@ -33,11 +32,10 @@
     border-left-color: #6c5ce7;
 }
 
-.intro__cat {
-    border: 3px solid #6c5ce7;
-    filter: drop-shadow(0 0 6px rgba(108, 92, 231, 0.3));
+.footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
 }
 
-.footer {
-    background-color: #141428;
+.intro__cat {
+    filter: drop-shadow(0 0 6px rgba(108, 92, 231, 0.3));
 }
