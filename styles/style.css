@@ -1,5 +1,238 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* Обнуление стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+/* CSS-переменные для тем (переименованы для уникализации) */
+:root {
+    --background-light: #ffffff;
+    --background-dark: #1a1a2e;
+    --text-light: #111111;
+    --text-dark: #eeeeee;
+    --surface-light: #f5f5f5;
+    --surface-dark: #2d2d44;
+    --accent-primary: #4a90e2;
+    --accent-secondary: #6c5ce7;
+}
+
+/* Светлая тема (по умолчанию) */
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    line-height: 1.5;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.2s ease;
+    min-height: 100vh;
+}
+
+/* Тёмная тема */
+body.dark-theme {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.dark-theme .card {
+    background-color: var(--surface-dark);
+}
+
+body.dark-theme .methods__item {
+    background-color: var(--surface-dark);
+}
+
+/* Шапка */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.header__logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Меню тем */
+.theme-menu {
+    display: flex;
+    gap: 12px;
+}
+
+.theme-menu__button {
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+.theme-menu__button:hover {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+}
+
+/* Основной контент */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили для грустного котика */
+.intro__cat {
+    display: block;
+    max-width: 150px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    opacity: 0.85;
+    transition: transform 0.3s ease;
+}
+
+.intro__cat:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* На тёмной теме котику добавим свечение */
+body.dark-theme .intro__cat {
+    filter: drop-shadow(0 0 8px rgba(108, 92, 231, 0.4));
+}
+
+/* Вступление */
+.intro {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.intro__title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.intro__text {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+/* Секция причин */
+.reasons {
+    margin-bottom: 70px;
+}
+
+.reasons__title {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+}
+
+.reasons__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--surface-light);
+    padding: 24px;
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card__title {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+/* Секция методов */
+.methods {
+    margin-bottom: 70px;
+}
+
+.methods__title {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+}
+
+.methods__list {
+    list-style: none;
+}
+
+.methods__item {
+    background-color: var(--surface-light);
+    padding: 16px 24px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-primary);
+}
+
+/* Подвал */
+.footer {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    opacity: 0.7;
+}
+
+body.dark-theme .footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .intro__title {
+        font-size: 2rem;
+    }
+    
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro__title {
+        font-size: 1.6rem;
+    }
+    
+    .reasons__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        padding: 18px;
+    }
+    
+    .theme-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
