@@ -3,45 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
     <title>Сложно сосредоточиться</title>
+    
+    <!-- 1. Сначала шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- 2. Потом свои стили -->
+    <link rel="stylesheet" href="styles/light.css">
+    <link rel="stylesheet" href="styles/dark.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body class="page">
     <header class="header">
-        <div class="header__logo">Очень сложно сосредоточиться</div>
+        <div class="header__logo">
+            <span class="header__logo-text">Сложно сосредоточиться</span>
+        </div>
         <nav class="theme-menu">
-            <button class="theme-menu__button" data-theme="light">Светлая тема</button>
-            <button class="theme-menu__button" data-theme="dark">Тёмная тема</button>
+            <button class="theme-menu__button" data-theme="light">Светлая</button>
+            <button class="theme-menu__button" data-theme="dark">Тёмная</button>
         </nav>
     </header>
 
     <main class="content">
         <section class="intro">
-            <img class="intro__cat" src="images/sad-cat.jpg" alt="Грустный котик не может сосредоточиться">
-            <h1 class="intro__title">Как перестать отвлекаться и начать работать!</h1>
+            <img class="intro__cat" src="images/sad-cat.png" alt="Грустный котик">
+            <h1 class="intro__title">Как перестать отвлекаться<br>и начать работать</h1>
             <p class="intro__text">Постоянная смена контекста и цифровой шум снижают продуктивность. Разбираем способы фокусировки.</p>
         </section>
 
         <section class="reasons">
-            <h2 class="reasons__title">Почему сложно сосредоточиться?</h2>
+            <h2 class="reasons__title">Почему сложно сосредоточиться</h2>
             <div class="reasons__grid">
                 <article class="card">
                     <h3 class="card__title">Многозадачность</h3>
-                    <p class="card__text">Мозг вынужден постоянно переключаться между задачами, что истощает когнитивные ресурсы и снижает качество работы. Не надо так.....</p>
+                    <p class="card__text">Мозг вынужден постоянно переключаться между задачами, что истощает когнитивные ресурсы и снижает качество работы.</p>
                 </article>
                 <article class="card">
                     <h3 class="card__title">Цифровой шум</h3>
-                    <p class="card__text">Бесконечные уведомления, сообщения в мессенджерах и соцсети создают хаос внимания и мешают глубокой работе. Уменьшаем!</p>
+                    <p class="card__text">Бесконечные уведомления, сообщения в мессенджерах и соцсети создают хаос внимания и мешают глубокой работе.</p>
                 </article>
                 <article class="card">
                     <h3 class="card__title">Отсутствие режима</h3>
-                    <p class="card__text">Нерегулярный график, недостаток сна и сбитые циркадные ритмы напрямую влияют на способность концентрироваться. НУ тут ничего не поделаешь.....</p>
+                    <p class="card__text">Нерегулярный график, недостаток сна и сбитые циркадные ритмы напрямую влияют на способность концентрироваться.</p>
                 </article>
             </div>
         </section>
 
         <section class="methods">
-            <h2 class="methods__title">Лайфхаки в студию</h2>
+            <h2 class="methods__title">Методы восстановления внимания</h2>
             <ul class="methods__list">
                 <li class="methods__item">Метод Pomodoro — 25 минут работы, 5 минут отдыха</li>
                 <li class="methods__item">Техника "одна задача" — никаких переключений между делами</li>
@@ -52,7 +64,7 @@
     </main>
 
     <footer class="footer">
-        <p class="footer__copy">Проект для Яндекс.Практикума · 2026</p>
+        <p class="footer__copy">Проект для Яндекс.Практикума · 2025</p>
     </footer>
 
     <script src="scripts/script.js"></script>
